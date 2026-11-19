@@ -1,4 +1,4 @@
-name: Build Lo-Fi-er v2 VST3
+name: Build Lo-Fi-er v3 VST3
 
 on:
   push:
@@ -19,10 +19,10 @@ jobs:
         run: cmake -B build
 
       - name: Build VST3 (Release)
-        run: cmake --build build --config Release --target LoFiErV2_VST3
+        run: cmake --build build --config Release --target LoFiErV3_VST3
 
       - name: Upload VST3 Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: LoFiErV2-VST3-Windows
-          path: build/LoFiErV2_artefacts/Release/VST3/
+          name: LoFiErV3-VST3-Windows
+          path: build/LoFiErV3_artefacts/Release/VST3/
