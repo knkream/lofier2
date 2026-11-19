@@ -1,0 +1,28 @@
+name: Build Lo-Fi-er v2 VST3
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Clone JUCE
+        run: git clone --depth 1 https://github.com/juce-framework/JUCE.git
+
+      - name: Configure CMake
+        run: cmake -B build
+
+      - name: Build VST3 (Release)
+        run: cmake --build build --config Release --target LoFiErV2_VST3
+
+      - name: Upload VST3 Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: LoFiErV2-VST3-Windows
+          path: build/LoFiErV2_artefacts/Release/VST3/
