@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(LoFiErV2 VERSION 2.0.0)
+project(LoFiErV3 VERSION 3.0.0)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -12,7 +12,7 @@ else()
     set(SHOULD_COPY_PLUGIN TRUE)
 endif()
 
-juce_add_plugin(LoFiErV2
+juce_add_plugin(LoFiErV3
     COMPANY_NAME "KNK"
     IS_SYNTH FALSE
     NEEDS_MIDI_INPUT FALSE
@@ -21,23 +21,23 @@ juce_add_plugin(LoFiErV2
     EDITOR_WANTS_KEYBOARD_FOCUS FALSE
     COPY_PLUGIN_AFTER_BUILD ${SHOULD_COPY_PLUGIN}
     PLUGIN_MANUFACTURER_CODE Knkr
-    PLUGIN_CODE Lfr2
+    PLUGIN_CODE Lfr3
     FORMATS VST3 Standalone
-    PRODUCT_NAME "Lo-Fi-er v2"
+    PRODUCT_NAME "Lo-Fi-er v3"
 )
 
-target_sources(LoFiErV2 PRIVATE
-    PluginProcessor.cpp
-    PluginEditor.cpp
+target_sources(LoFiErV3 PRIVATE
+    Source/PluginProcessor.cpp
+    Source/PluginEditor.cpp
 )
 
-target_compile_definitions(LoFiErV2 PUBLIC
+target_compile_definitions(LoFiErV3 PUBLIC
     JUCE_WEB_BROWSER=0
     JUCE_USE_CURL=0
     JUCE_VST3_CAN_REPLACE_VST2=0
 )
 
-target_link_libraries(LoFiErV2 PRIVATE
+target_link_libraries(LoFiErV3 PRIVATE
     juce::juce_audio_utils
 PUBLIC
     juce::juce_recommended_config_flags
