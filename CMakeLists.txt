@@ -27,8 +27,8 @@ juce_add_plugin(LoFiErV2
 )
 
 target_sources(LoFiErV2 PRIVATE
-    Source/PluginProcessor.cpp
-    Source/PluginEditor.cpp
+    PluginProcessor.cpp
+    PluginEditor.cpp
 )
 
 target_compile_definitions(LoFiErV2 PUBLIC
